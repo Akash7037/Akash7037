@@ -26,19 +26,18 @@ A line-following robot is an autonomous machine that can follow a predefined pat
 - Out 1,2 = motor left
 - Out 3,4 = Motor right
   # CoDE
-  ``` #define leftSensor 2     // Left IR sensor
-#define rightSensor 3    // Right IR sensor
-#define leftMotor1 4     // IN1 on motor driver (Left Motor)
-#define leftMotor2 5     // IN2 on motor driver (Left Motor)
-#define rightMotor1 6    // IN3 on motor driver (Right Motor)
-#define rightMotor2 7    // IN4 on motor driver (Right Motor)
-#define enA 9            // ENA pin for speed control (Left Motor)
-#define enB 10           // ENB pin for speed control (Right Motor)
+  ```
+  #define leftSensor 2     // Left IR sensor
+   #define rightSensor 3    // Right IR sensor
+  #define leftMotor1 4     // IN1 on motor driver (Left Motor)
+  #define leftMotor2 5     // IN2 on motor driver (Left Motor)
+  #define rightMotor1 6    // IN3 on motor driver (Right Motor)
+  #define rightMotor2 7    // IN4 on motor driver (Right Motor)
+  #define enA 9            // ENA pin for speed control (Left Motor)
+  #define enB 10           // ENB pin for speed control (Right Motor)
+  int motorSpeed = 150;
 
-// Define motor speed (0 to 255)
-int motorSpeed = 150;
-
-void setup() {
+  void setup() {
   pinMode(leftSensor, INPUT);
   pinMode(rightSensor, INPUT);
   pinMode(leftMotor1, OUTPUT);
@@ -51,9 +50,9 @@ void setup() {
   // Set initial speed
   analogWrite(enA, motorSpeed);
   analogWrite(enB, motorSpeed);
-}
+  }
 
-void loop() {
+  void loop() {
   int left = digitalRead(leftSensor);
   int right = digitalRead(rightSensor);
 
@@ -66,39 +65,39 @@ void loop() {
   } else { // Both sensors off the line
     stopMotors();
   }
-}
+  }
 
-// Function to move forward
-void moveForward() {
+  // Function to move forward
+  void moveForward() {
   digitalWrite(leftMotor1, HIGH);
   digitalWrite(leftMotor2, LOW);
   digitalWrite(rightMotor1, HIGH);
   digitalWrite(rightMotor2, LOW);
-}
+  }
 
-// Function to turn left
-void turnLeft() {
+  // Function to turn left
+  void turnLeft() {
   digitalWrite(leftMotor1, LOW);
   digitalWrite(leftMotor2, HIGH);
   digitalWrite(rightMotor1, HIGH);
   digitalWrite(rightMotor2, LOW);
-}
+  }
 
-// Function to turn right
-void turnRight() {
+  // Function to turn right
+  void turnRight() {
   digitalWrite(leftMotor1, HIGH);
   digitalWrite(leftMotor2, LOW);
   digitalWrite(rightMotor1, LOW);
   digitalWrite(rightMotor2, HIGH);
-}
+  }
 
-// Function to stop motors
-void stopMotors() {
+   // Function to stop motors
+  void stopMotors() {
   digitalWrite(leftMotor1, LOW);
   digitalWrite(leftMotor2, LOW);
   digitalWrite(rightMotor1, LOW);
   digitalWrite(rightMotor2, LOW);
-}
+  }
   
 <!---
 Akash7037/Akash7037 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
